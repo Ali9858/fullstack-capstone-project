@@ -1,0 +1,193 @@
+1. https://github.com/Ali9858/fullstack-capstone-project/blob/main/.github/ISSUE_TEMPLATE/user-story.md
+2. image fullstack-capstone-project.png
+3. giftdb> db.gifts.countDocuments()
+   16
+4. https://github.com/Ali9858/fullstack-capstone-project/blob/main/giftlink-backend/models/db.js
+5. https://github.com/Ali9858/fullstack-capstone-project/blob/main/giftlink-backend/routes/giftRoutes.js
+6. https://github.com/Ali9858/fullstack-capstone-project/blob/main/giftlink-backend/routes/searchRoutes.js
+7. https://github.com/Ali9858/fullstack-capstone-project/blob/main/giftlink-backend/app.js
+8. https://github.com/Ali9858/fullstack-capstone-project/blob/main/sentiment/index.js
+9. https://github.com/Ali9858/fullstack-capstone-project/blob/main/giftlink-frontend/src/components/RegisterPage/RegisterPage.js
+10. https://github.com/Ali9858/fullstack-capstone-project/blob/main/giftlink-frontend/src/components/LoginPage/LoginPage.js
+11. https://github.com/Ali9858/fullstack-capstone-project/blob/main/giftlink-backend/routes/authRoutes.js
+12.
+13. PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend> curl.exe http://localhost:3060/api/gifts
+    [{"_id":"6a9d96cf56c5d2be969df8a4","id":"1","name":"Старые подарки","description":"Набор классических подарков для уютной гостиной","category":"Гостиная","price":49.99},{"_id":"6a9d96cf56c5d2be969df8a5","id":"2","name":"Настольная лампа","description":"Современная LED лампа для гостиной","category":"Гостиная","price":34.99},{"_id":"6a9d96cf56c5d2be969df8a6","id":"3","name":"Декоративная ваза","description":"Керамическая ваза для украшения интерьера","category":"Гостиная","price":29.99},{"_id":"6a9d96cf56c5d2be969df8a7","id":"4","name":"Мягкий плед","description":"Теплый плед для дивана","category":"Гостиная","price":39.99},{"_id":"6a9d96cf56c5d2be969df8a8","id":"5","name":"Ароматическая свеча","description":"Свеча с приятным домашним ароматом","category":"Спальня","price":19.99},{"_id":"6a9d96cf56c5d2be969df8a9","id":"6","name":"Комплект подушек","description":"Декоративные подушки для дома","category":"Спальня","price":27.99},{"_id":"6a9d96cf56c5d2be969df8aa","id":"7","name":"Настенные часы","description":"Стильные часы для интерьера","category":"Гостиная","price":44.99},{"_id":"6a9d96cf56c5d2be969df8ab","id":"8","name":"Фотоальбом","description":"Красивый альбом для семейных фотографий","category":"Дом","price":24.99},{"_id":"6a9d96cf56c5d2be969df8ac","id":"9","name":"Набор кружек","description":"Набор керамических кружек для всей семьи","category":"Кухня","price":32.99},{"_id":"6a9d96cf56c5d2be969df8ad","id":"10","name":"Электрический чайник","description":"Быстрый и удобный чайник для кухни","category":"Кухня","price":54.99},{"_id":"6a9d96cf56c5d2be969df8ae","id":"11","name":"Набор кухонных полотенец","description":"Комплект хлопковых полотенец","category":"Кухня","price":16.99},{"_id":"6a9d96cf56c5d2be969df8af","id":"12","name":"Органайзер","description":"Практичный органайзер для хранения вещей","category":"Дом","price":22.99},{"_id":"6a9d96cf56c5d2be969df8b0","id":"13","name":"Комнатное растение","description":"Декоративное растение для дома","category":"Гостиная","price":25.99},{"_id":"6a9d96cf56c5d2be969df8b1","id":"14","name":"Коврик","description":"Мягкий декоративный коврик","category":"Дом","price":59.99},{"_id":"6a9d96cf56c5d2be969df8b2","id":"15","name":"Набор для завтрака","description":"Тарелки и чашки для семейного завтрака","category":"Кухня","price":42.99},{"_id":"6a9d96cf56c5d2be969df8b3","id":"16","name":"Декоративная рамка","description":"Рамка для семейных фотографий","category":"Гостиная","price":18.99}]
+14. PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend> $body = @{
+    >>     firstName = "Ali"
+    >>     lastName = "Test"
+    >>     email = "ali.test2026@example.com"
+    >>     password = "Test12345!"
+    >> } | ConvertTo-Json
+    PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend>
+    PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend> $response = Invoke-RestMethod `
+    >>     -Uri "http://localhost:3060/api/auth/register" `
+    >>     -Method POST `
+    >>     -ContentType "application/json" `
+    >>     -Body $body
+    PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend>
+    PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend> $response | ConvertTo-Json
+    {
+        "authtoken":  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE5ZDljZmU2YTk4Yjc5MDZhZmEzOWJkIn0sImlhdCI6MTc4ODcxNDIzOH0.svb48XVHPNePHh7scEY4eL7hU3BFYmj1EsXursAK03U",
+        "email":  "ali.test2026@example.com"
+    }
+15. PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend> $loginBody = @{
+    >>     email = "ali.test2026@example.com"
+    >>     password = "Test12345!"
+    >> } | ConvertTo-Json
+    PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend>
+    PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend> $loginResponse = Invoke-RestMethod `
+    >>     -Uri "http://localhost:3060/api/auth/login" `
+    >>     -Method POST `
+    >>     -ContentType "application/json" `
+    >>     -Body $loginBody
+    PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend>
+    PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend> $loginResponse | ConvertTo-Json
+    {
+        "authtoken":  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNmE5ZDljZmU2YTk4Yjc5MDZhZmEzOWJkIn0sImlhdCI6MTc4ODcxNDI4NH0.1WMKiyxnRtmXRe519gU4yUiYdpfIY-sbBX3K9WK6vNI",
+        "userName":  "Ali",
+        "userEmail":  "ali.test2026@example.com"
+    }
+16. PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend> curl.exe http://localhost:3060/api/gifts/1
+    {"_id":"6a9d96cf56c5d2be969df8a4","id":"1","name":"Старые подарки","description":"Набор классических подарков для уютной гостиной","category":"Гостиная","price":49.99}
+17. PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend> curl.exe "http://localhost:3060/api/search?name=лампа"
+    PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend> curl.exe "http://localhost:3060/api/search?category=%D0%93%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B0%D1%8F"
+    [{"_id":"6a9d96cf56c5d2be969df8a4","id":"1","name":"Старые подарки","description":"Набор классических подарков для уютной гостиной","category":"Гостиная","price":49.99},{"_id":"6a9d96cf56c5d2be969df8a5","id":"2","name":"Настольная лампа","description":"Современная LED лампа для гостиной","category":"Гостиная","price":34.99},{"_id":"6a9d96cf56c5d2be969df8a6","id":"3","name":"Декоративная ваза","description":"Керамическая ваза для украшения интерьера","category":"Гостиная","price":29.99},{"_id":"6a9d96cf56c5d2be969df8a7","id":"4","name":"Мягкий плед","description":"Теплый плед для дивана","category":"Гостиная","price":39.99},{"_id":"6a9d96cf56c5d2be969df8aa","id":"7","name":"Настенные часы","description":"Стильные часы для интерьера","category":"Гостиная","price":44.99},{"_id":"6a9d96cf56c5d2be969df8b0","id":"13","name":"Комнатное растение","description":"Декоративное растение для дома","category":"Гостиная","price":25.99},{"_id":"6a9d96cf56c5d2be969df8b3","id":"16","name":"Декоративная рамка","description":"Рамка для семейных фотографий","category":"Гостиная","price":18.99}]
+    PS F:\JSProject\JSFull-Stack-giftlink-backend\giftlink-backend>
+18.
+
+
+
+
+
+giftdb> db.gifts.find().pretty()
+[
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8a4'),
+    id: '1',
+    name: 'Старые подарки',
+    description: 'Набор классических подарков для уютной гостиной',
+    category: 'Гостиная',
+    price: 49.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8a5'),
+    id: '2',
+    name: 'Настольная лампа',
+    description: 'Современная LED лампа для гостиной',
+    category: 'Гостиная',
+    price: 34.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8a6'),
+    id: '3',
+    name: 'Декоративная ваза',
+    description: 'Керамическая ваза для украшения интерьера',
+    category: 'Гостиная',
+    price: 29.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8a7'),
+    id: '4',
+    name: 'Мягкий плед',
+    description: 'Теплый плед для дивана',
+    category: 'Гостиная',
+    price: 39.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8a8'),
+    id: '5',
+    name: 'Ароматическая свеча',
+    description: 'Свеча с приятным домашним ароматом',
+    category: 'Спальня',
+    price: 19.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8a9'),
+    id: '6',
+    name: 'Комплект подушек',
+    description: 'Декоративные подушки для дома',
+    category: 'Спальня',
+    price: 27.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8aa'),
+    id: '7',
+    name: 'Настенные часы',
+    description: 'Стильные часы для интерьера',
+    category: 'Гостиная',
+    price: 44.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8ab'),
+    id: '8',
+    name: 'Фотоальбом',
+    description: 'Красивый альбом для семейных фотографий',
+    category: 'Дом',
+    price: 24.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8ac'),
+    id: '9',
+    name: 'Набор кружек',
+    description: 'Набор керамических кружек для всей семьи',
+    category: 'Кухня',
+    price: 32.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8ad'),
+    id: '10',
+    name: 'Электрический чайник',
+    description: 'Быстрый и удобный чайник для кухни',
+    category: 'Кухня',
+    price: 54.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8ae'),
+    id: '11',
+    name: 'Набор кухонных полотенец',
+    description: 'Комплект хлопковых полотенец',
+    category: 'Кухня',
+    price: 16.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8af'),
+    id: '12',
+    name: 'Органайзер',
+    description: 'Практичный органайзер для хранения вещей',
+    category: 'Дом',
+    price: 22.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8b0'),
+    id: '13',
+    name: 'Комнатное растение',
+    description: 'Декоративное растение для дома',
+    category: 'Гостиная',
+    price: 25.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8b1'),
+    id: '14',
+    name: 'Коврик',
+    description: 'Мягкий декоративный коврик',
+    category: 'Дом',
+    price: 59.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8b2'),
+    id: '15',
+    name: 'Набор для завтрака',
+    description: 'Тарелки и чашки для семейного завтрака',
+    category: 'Кухня',
+    price: 42.99
+  },
+  {
+    _id: ObjectId('6a9d96cf56c5d2be969df8b3'),
+    id: '16',
+    name: 'Декоративная рамка',
+    description: 'Рамка для семейных фотографий',
+    category: 'Гостиная',
+    price: 18.99
+  }
+]
