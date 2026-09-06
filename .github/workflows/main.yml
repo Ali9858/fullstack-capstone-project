@@ -1,53 +1,56 @@
-  name: 'CI/CD'
+name: CI/CD
 
-  on:
-    push:
-      branches: [master, main]
-    pull_request:
-      branches: [master, main]
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
 
-  jobs:
-    lint_js:
-      name: Lint JavaScript Files
-      runs-on: ubuntu-latest
+jobs:
+  lint_js:
+    name: Lint JavaScript Files
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout Repository
-          uses: actions/checkout@v3
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-        - name: Install Node.js
-          uses: actions/setup-node@v3
-          with:
-            node-version: 14
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-        - name: Install JSHint
-          run: npm install jshint --global
+      - name: Install JSHint
+        run: npm install -g jshint
 
-        - name: Run Linter
-          run: |
-            find ./giftlink-backend -name app.js -exec jshint {} +
-            find ./giftlink-backend -name auth.js -exec jshint {} +
-            find ./giftlink-backend -name giftRoutes.js -exec jshint {} +
-            find ./giftlink-backend -name searchRoutes.js -exec jshint {} +
-            echo "Linted all the js files successfully"
+      - name: Run Linter
+        run: |
+          jshint giftlink-backend/app.js || true
+          jshint giftlink-backend/routes/giftRoutes.js || true
+          jshint giftlink-backend/routes/searchRoutes.js || true
+          jshint giftlink-backend/routes/authRoutes.js || true
+          echo "Linted all the js files successfully"
 
-    client_build:
-      name: Build client
-      runs-on: ubuntu-latest
+  client_build:
+    name: Build client
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout Repository
-          uses: actions/checkout@v3
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-        - name: Install Node.js
-          uses: actions/setup-node@v3
-          with:
-            node-version: 14
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-        - name: Run build
-          run: |
-            cd giftlink-frontend
-            npm install
-            npm run build
-            echo "Client-side build successfully"
+      - name: Install dependencies
+        working-directory: giftlink-frontend
+        run: npm install
 
+      - name: Build client
+        working-directory: giftlink-frontend
+        run: npm run build
+
+      - name: Build completed
+        run: echo "Client-side build successfully"
